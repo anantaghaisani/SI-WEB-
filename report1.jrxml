@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="198" pageHeight="425" columnWidth="187" leftMargin="6" rightMargin="5" topMargin="33" bottomMargin="33" uuid="f34bde90-5bbc-4231-929b-9fe886fae8ad">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="17"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT transaksi.no_nota, transaksi.nama_cust, transaksi.tgl_transaksi, transaksi.grand_total, transaksi.dibayarkan, transaksi.kembalian, transaksi.kurangBayar, transaksi.statusTransaksi, pengambilan.tanggal_pengambilan, pengambilan.jam, detail.id_barang, detail.qty, detail.total, detail_kemasan.id_kemasan, detail_kemasan.qty, detail_kemasan.total, detail_paket_tr.identitas_pkt, detail_paket_tr.qty, detail_paket_tr.total, detail_paket.id_barang, detail_paket.qty, barang.nama_barang, barang.harga_jual, kemasan.jenis_kemasan, kemasan.harga, paket.nama_paket, paket.harga FROM transaksi JOIN pengambilan ON transaksi.no_nota = pengambilan.no_nota JOIN detail ON transaksi.no_nota = detail.no_nota JOIN barang ON detail.id_barang = barang.id_barang JOIN detail_kemasan ON transaksi.no_nota = detail_kemasan.no_nota JOIN kemasan ON detail_kemasan.id_kemasan = kemasan.id_kemasan JOIN detail_paket_tr ON transaksi.no_nota = detail_paket_tr.no_nota JOIN detail_paket ON detail_paket_tr.identitas_pkt = detail_paket.identitas_pkt JOIN paket ON paket.id_paket = detail_paket_tr.id_paket JOIN barang AS b2 ON b2.id_barang = detail_paket.id_barang]]>
+	</queryString>
+	<field name="no_nota" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_cust" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_transaksi" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grand_total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dibayarkan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kurangBayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusTransaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_pengambilan" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jam" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_kemasan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="identitas_pkt" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga_jual" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_kemasan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_paket" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="0" width="162" height="18" uuid="206be6b1-8adf-4f0b-bb8b-b83962939446"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[BROWNIES N FRIENDS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="45" y="0" width="100" height="40" uuid="b2e3a888-f553-4053-8aa0-9dcef64cf8a6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jalan Bengawan Solo
+JEMBER
+08510005722]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="45" width="187" height="1" uuid="a48d47f2-b07c-4706-b8f9-46ff61d8b83b"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="13" y="12" width="87" height="20" uuid="3792c2e7-d2d0-4167-8444-c8f05ae8c8b8"/>
+				<textFieldExpression><![CDATA[$F{no_nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="32" width="87" height="20" uuid="b2a7dece-a112-4e9a-9f9a-c9b1bb88ca3e"/>
+				<textFieldExpression><![CDATA[$F{nama_cust}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="12" width="75" height="20" uuid="4f1055b1-7ca4-4905-a86f-34bcb2cc30a4"/>
+				<textFieldExpression><![CDATA[$F{tanggal_pengambilan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="32" width="75" height="20" uuid="782fa3d5-5180-4679-a11f-8df006b7d881"/>
+				<textFieldExpression><![CDATA[$F{jam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="123" y="1" width="100" height="20" uuid="6764d210-1731-44d9-a4d5-358f139bc222"/>
+				<text><![CDATA[qty]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="34" height="13" uuid="3a69c188-833b-4ead-9526-838a15796d48"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="10" width="66" height="13" uuid="90a9f2d4-a274-41d5-8a6e-f1a087f68d19"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="10" width="12" height="13" uuid="2f6c145b-c8ba-4355-aff4-cc182ed3c715"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="10" width="41" height="13" uuid="75e90e45-802b-4329-9e33-5b418e92d722"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga_jual}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50">
+			<textField>
+				<reportElement x="0" y="0" width="34" height="12" uuid="878f51b6-5b75-4cce-9030-45a6f0afd248"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_kemasan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="65" height="12" uuid="84bcdfc8-eeea-4766-b219-15f60ed25354"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenis_kemasan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="100" height="20" uuid="345db064-346f-4c8f-a266-00913fcce6a1"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
